@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomcat-with-init-emptydir-svc
+spec:
+  type: NodePort
+  selector:
+    name: emptydirvol
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30080
+  

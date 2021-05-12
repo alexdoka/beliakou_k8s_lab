@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: user-pod
+  labels:
+    name: user-pod
+spec:
+  containers:
+  - name: user-pod
+    image: busybox
+    command: ["sleep", "4800"]
+    env:
+      - name: USER1
+        valueFrom:
+          configMapKeyRef:
+            name: users-cm
+            key: user1
+      - name: USER2
+        valueFrom:
+          configMapKeyRef:
+            name: users-cm
+            key: user2
+    resources:
+      limits:
+        memory: "64Mi"
+        cpu: "100m"
+    

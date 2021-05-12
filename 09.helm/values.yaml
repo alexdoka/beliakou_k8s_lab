@@ -1,0 +1,3 @@
+color: green
+replicas: 1
+image: sbeliakou/color

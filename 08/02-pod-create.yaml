@@ -1,0 +1,38 @@
+# kubectl create secret docker-registry docker-private-registry \
+#  --docker-server=dummyregistry.com \
+#  --docker-username=adakutovich \
+#  --docker-password="myVeryStronPassword" \
+#  --docker-email=adakutovich@mycompany.com
+---
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name:  private-registry
+
+
+# kubectl patch serviceaccount private-registry \
+#   --patch '{
+#     "imagePullSecrets": [
+#       {
+#         "name": "docker-private-registry"
+#       }
+#     ]
+#   }'
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: corporate-app
+  labels:
+    name: corporate-app
+spec:
+  serviceAccountName: private-registry
+  containers:
+  - name: corporate-app
+    image: dummyregistry.com/privaterepository/application:v1
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"

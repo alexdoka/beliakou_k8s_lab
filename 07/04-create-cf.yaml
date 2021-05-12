@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: users-cm
+data:
+  cluster-admin: admin
+  devops: devops
+  db-admin: db-admin
+  user1: Theodore Johnson
+  user2: Annie Island
+  user3: Aliaksandr Dakutovich
+  

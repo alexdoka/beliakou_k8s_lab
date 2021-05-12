@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  data_file: |
+    IP=10.244.0.1
+    NAME="Ubuntu"
+    VERSION="20.10 (Groovy Gorilla)"
+    PRETTY_NAME="Ubuntu Groovy Gorilla (development branch)"
+kind: ConfigMap
+metadata:
+  name: os-config

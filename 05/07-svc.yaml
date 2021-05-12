@@ -1,0 +1,110 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"navy-color"},"name":"navy-svc","namespace":"default"},"spec":{"ports":[{"port":80,"protocol":"TCP"}],"selector":{"app":"navy"},"type":"ClusterIP"}}
+  creationTimestamp: "2021-02-26T08:51:04Z"
+  labels:
+    app: navy-color
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:labels:
+          .: {}
+          f:app: {}
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":80,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:app: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2021-02-26T08:51:04Z"
+  name: navy-svc
+  namespace: trouble-2
+  resourceVersion: "112130"
+  selfLink: /api/v1/namespaces/default/services/navy-svc
+  uid: 4c9a645c-b0d6-46e5-8fad-0b77afdb0cd8
+spec:
+  clusterIP: 10.96.169.84
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: navy-color
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"teal-color"},"name":"teal-svc","namespace":"default"},"spec":{"ports":[{"port":80,"protocol":"TCP"}],"selector":{"app":"teal"},"type":"ClusterIP"}}
+  creationTimestamp: "2021-02-26T08:51:04Z"
+  labels:
+    app: teal-color
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:labels:
+          .: {}
+          f:app: {}
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":80,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:app: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2021-02-26T08:51:04Z"
+  name: teal-svc
+  namespace: trouble-2
+  resourceVersion: "112120"
+  selfLink: /api/v1/namespaces/default/services/teal-svc
+  uid: 9ad79a74-04c8-4cbb-8fd9-b39307572dc6
+spec:
+  clusterIP: 10.96.72.33
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: teal-color
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+

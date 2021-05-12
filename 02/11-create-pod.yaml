@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: envtest
+  labels:
+    name: envtest
+spec:
+  containers:
+  - name: envtest
+    image: busybox
+    env:
+      - name: STUDENT_FIRST_NAME
+        value: Aliaksandr
+      - name: STUDENT_LAST_NAME
+        value: Dakutovich      
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    command: ["/bin/sh"]
+    args: ["-c", "env && sleep infinity"]

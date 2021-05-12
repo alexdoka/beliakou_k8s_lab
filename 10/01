@@ -1,0 +1,13 @@
+kubeadm init \
+  --pod-network-cidr=192.168.0.0/16 \
+  --token-ttl 20m --token abcdef.0123456789abcdef \
+  --control-plane-endpoint=api.k8slab.playpit.net
+
+
+kubectl patch service ingress-nginx -n ingress-nginx --patch '{
+  "spec": {
+    "externalIPs": [
+      "172.31.0.2"
+    ]
+  }
+}'

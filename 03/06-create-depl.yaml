@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adakutovich-app
+  labels:
+    app: adakutovich-app
+    student: adakutovich
+spec:
+  selector:
+    matchLabels:
+      app: adakutovich-app
+  template:
+    metadata:
+      labels:
+        app: adakutovich-app
+        deploy: adakutovich-app
+        kind: redis
+        role: master
+        tier: db
+    spec:
+      initContainers:
+      - name: sleepinitcontainer
+        image: busybox
+        command: ["sleep", "10"]
+      containers:
+      - name: redis-master
+        image: redis
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 6379

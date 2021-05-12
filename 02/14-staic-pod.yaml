@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: static-nginx
+  name: static-nginx
+spec:
+  containers:
+  - image: nginx
+    name: static-nginx
+    resources:
+      limits:
+        memory: "64Mi"
+        cpu: "100m"
+
